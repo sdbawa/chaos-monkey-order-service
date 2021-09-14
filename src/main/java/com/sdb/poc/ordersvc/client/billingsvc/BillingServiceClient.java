@@ -35,11 +35,11 @@ public class BillingServiceClient {
                     .body(Mono.just(req), ProcessBillingRequest.class)
                     .retrieve()
                     .onStatus(HttpStatus::is4xxClientError, response -> {
-                        System.out.println("4xx error");
+                        log.error("Exception HTTP 400 while calling Billing Svc");
                         return Mono.empty();
                     })
                     .onStatus(HttpStatus::is5xxServerError, response -> {
-                        System.out.println("5xx error");
+                        log.error("Exception HTTP 500 while calling Billing Svc");
                         return Mono.empty();
                     })
                     .bodyToMono(ProcessBillingResponse.class)

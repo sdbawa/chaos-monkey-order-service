@@ -1,10 +1,6 @@
 package com.sdb.poc.ordersvc.order;
 
 
-import com.sdb.poc.ordersvc.client.billingsvc.BillingServiceClient;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,11 +18,11 @@ import java.util.Optional;
 @Slf4j
 public class OrderController {
 
-    private final OrderService orderService;
+    private final OrderComponent orderComponent;
 
 
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+    public OrderController(OrderComponent orderComponent) {
+        this.orderComponent = orderComponent;
     }
 
     /**
@@ -35,7 +31,7 @@ public class OrderController {
      */
     @GetMapping(value="/all-orders")
     public List<Orders> orders(){
-        return orderService.getAllOrders();
+        return orderComponent.getAllOrders();
     }
 
     /**
@@ -45,7 +41,7 @@ public class OrderController {
      */
     @GetMapping(value="/order-billing-status/{id}")
     public Optional<Orders> getOrderWithBillingStatus(@PathVariable Integer id){
-        return orderService.getOrderBillingStatus(id);
+        return orderComponent.getOrderBillingStatus(id);
     }
 
 }

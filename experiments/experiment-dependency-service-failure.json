@@ -13,7 +13,7 @@
         "provider": {
           "type": "http",
           "timeout": 1,
-          "url": "http://localhost:8080/process-billing-for-order"
+          "url": "http://localhost:8080/order-svc/order-billing-status/1"
         }
       }
     ]
@@ -72,7 +72,7 @@
           "restController": false,
           "service": true,
           "repository": false,
-          "component": true
+          "component": false
         }
       },
       "type": "action"
