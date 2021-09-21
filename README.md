@@ -11,7 +11,7 @@ OrderService to demo the SpringBoot Chaos Monkey as per the following design.
 :source-highlighter: prettify
 
 This projects helps demonstrate the chaos monkey for Spring Boot/Java apps.. 
-This application serves the server side needs of client-server architecture put together to leverage elastic APIs using
+
 ----
 Java 
 SpringBoot 
