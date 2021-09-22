@@ -5,7 +5,7 @@ This is first of the 2 services OrderService to demo the SpringBoot Chaos Monkey
 
 image::image-2021-09-21-17-01-54-631.png[]
 
-:spring_boot_version: 2.0.5.RELEASE
+:spring_boot_version: 2.4.3
 :spring-boot: https://github.com/spring-projects/spring-boot
 :toc:
 :icons: font
@@ -31,8 +31,9 @@ GET http://localhost:8080/order-svc/all-orders
 
 == What you'll need
 
-java_version: 11 <br>
-spring-boot : 2.4.3 <br>
-chaos-monkey-spring-boot : 2.5.1 <br>
-
+```
+java_version: 11
+spring-boot : 2.4.3
+chaos-monkey-spring-boot : 2.5.1
+```
 
