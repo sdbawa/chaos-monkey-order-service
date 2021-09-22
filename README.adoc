@@ -5,6 +5,8 @@ This is first of the 2 services OrderService to demo the SpringBoot Chaos Monkey
 
 image::image-2021-09-21-17-01-54-631.png[]
 
+The code for billing-service in this figure can be found at : https://github.com/sdbawa/chaos-monkey-billing-service
+
 :spring_boot_version: 2.4.3
 :spring-boot: https://github.com/spring-projects/spring-boot
 :toc:
