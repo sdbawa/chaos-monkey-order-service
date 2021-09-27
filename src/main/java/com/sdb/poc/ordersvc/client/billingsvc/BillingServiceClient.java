@@ -19,6 +19,12 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class BillingServiceClient {
 
+    private WebClient webClient;
+
+    public BillingServiceClient(WebClient webClient) {
+        this.webClient = webClient;
+    }
+
     public Boolean retrieveOrderStatus (Integer orderId) {
         var processBilling = new ProcessBillingResponse();
         processBilling.setOrderStatus(Boolean.FALSE);
@@ -27,24 +33,22 @@ public class BillingServiceClient {
         req.setOrderId(orderId);
         req.setOrderDetails("Please process this new order");
 
-            WebClient webClient = WebClient.create("http://localhost:8081/billing-svc");
-
-            processBilling = webClient.post()
-                    .uri("/process-billing-for-order")
-                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                    .body(Mono.just(req), ProcessBillingRequest.class)
-                    .retrieve()
-                    .onStatus(HttpStatus::is4xxClientError, response -> {
-                        log.error("Exception HTTP 400 while calling Billing Svc");
-                        return Mono.empty();
-                    })
-                    .onStatus(HttpStatus::is5xxServerError, response -> {
-                        log.error("Exception HTTP 500 while calling Billing Svc");
-                        return Mono.empty();
-                    })
-                    .bodyToMono(ProcessBillingResponse.class)
-                    .block()
-                    ;
+        processBilling = webClient.post()
+                .uri ( "http://localhost:8081/billing-svc/process-billing-for-order" )
+                .header ( HttpHeaders.CONTENT_TYPE , MediaType.APPLICATION_JSON_VALUE )
+                .body ( Mono.just ( req ) , ProcessBillingRequest.class )
+                .retrieve ( )
+                .onStatus ( HttpStatus :: is4xxClientError , response -> {
+                    log.error ( "Exception HTTP 400 while calling Billing Svc" );
+                    return Mono.empty ( );
+                } )
+                .onStatus ( HttpStatus :: is5xxServerError , response -> {
+                    log.error ( "Exception HTTP 500 while calling Billing Svc" );
+                    return Mono.empty ( );
+                } )
+                .bodyToMono ( ProcessBillingResponse.class )
+                .block ( )
+        ;
             return processBilling.getOrderStatus();
     }
 
