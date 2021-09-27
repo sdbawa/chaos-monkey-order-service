@@ -41,7 +41,13 @@ public class OrderController {
      */
     @GetMapping(value="/order-billing-status/{id}")
     public Optional<Orders> getOrderWithBillingStatus(@PathVariable Integer id){
-        return orderComponent.getOrderBillingStatus(id);
+        Optional<Orders> order = Optional.empty();
+        try {
+            order = orderComponent.getOrderBillingStatus(id);
+        } catch (Exception e) {
+            log.error("Exception in /order-billing-status/{id} , {}" , e);
+        }
+        return order;
     }
 
 }

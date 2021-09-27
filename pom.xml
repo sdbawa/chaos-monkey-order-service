@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.3</version>
+        <version>2.5.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sdb.poc</groupId>
@@ -17,6 +17,12 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/de.codecentric/chaos-monkey-spring-boot -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>chaos-monkey-spring-boot</artifactId>
+            <version>2.5.3</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -37,12 +43,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/de.codecentric/chaos-monkey-spring-boot -->
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>chaos-monkey-spring-boot</artifactId>
-            <version>2.5.1</version>
-        </dependency>
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

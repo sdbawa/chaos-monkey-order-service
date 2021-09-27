@@ -35,7 +35,8 @@ public class OrderComponent {
 
 
     public Optional<Orders> getOrderBillingStatus(int id) {
-        Optional<Orders> orders = Optional.empty();
+        Optional<Orders> orders;
+        //Optional<Orders> orders = Optional.empty();
         //try {
             orders = orderRepository.findById(id);
             if(! orders.isEmpty()) {
@@ -47,6 +48,7 @@ public class OrderComponent {
                 }
             //} catch (Exception e) {
             //log.error("Error calling the Billing Service {}", e);
+            //return orders;
         //}
         return orders;
     }
