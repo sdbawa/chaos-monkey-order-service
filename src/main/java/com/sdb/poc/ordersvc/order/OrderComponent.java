@@ -30,6 +30,7 @@ public class OrderComponent {
         //} catch(Exception e) {
             //log.error("Exception when fetching DB records {}", e);
         //}
+        log.debug ( "returning orders ");
         return orders;
     }
 
@@ -44,6 +45,7 @@ public class OrderComponent {
                     Boolean billingStatus = billingServiceClient.retrieveOrderStatus(id);
                     if(billingStatus != null) {
                         orders.get().setBillingStatus(billingStatus);
+                        log.debug ( "SUCCESS gettig billing status from the billing-svc for {}", id );
                     }
                 }
             //} catch (Exception e) {

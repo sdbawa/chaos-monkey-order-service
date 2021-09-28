@@ -44,6 +44,7 @@ public class OrderController {
         Optional<Orders> order = Optional.empty();
         try {
             order = orderComponent.getOrderBillingStatus(id);
+            log.debug ("SUCCESS getOrderWithBillingStatus() ");
         } catch (Exception e) {
             log.error("Exception in /order-billing-status/{id} , {}" , e);
         }

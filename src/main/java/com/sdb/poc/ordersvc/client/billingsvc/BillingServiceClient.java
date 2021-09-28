@@ -47,8 +47,8 @@ public class BillingServiceClient {
                     return Mono.empty ( );
                 } )
                 .bodyToMono ( ProcessBillingResponse.class )
-                .block ( )
-        ;
+                .block ( );
+            log.debug ( "returning {} response from billing-client for {}", processBilling.getOrderStatus(), orderId );
             return processBilling.getOrderStatus();
     }
 
