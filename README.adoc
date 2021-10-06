@@ -2,10 +2,11 @@
 
 This projects helps demonstrate the chaos monkey for Spring Boot/Java apps developed in micro-services style.
 This is first of the 2 services OrderService to demo the SpringBoot Chaos Monkey as per the following design.
-https://bawa-simar.medium.com/developing-resilient-springboot-jvm-applications-with-chaos-engineering-applications-embracing-5ee063e7a119
 
 
 image::image-2021-09-21-17-01-54-631.png[]
+
+Please read more here : https://bawa-simar.medium.com/developing-resilient-springboot-jvm-applications-with-chaos-engineering-applications-embracing-5ee063e7a119
 
 
 ----
