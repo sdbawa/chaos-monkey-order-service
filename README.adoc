@@ -34,7 +34,7 @@ GET http://localhost:8080/order-svc/all-orders
 
 ```
 java_version: 11
-spring-boot : 2.4.3
-chaos-monkey-spring-boot : 2.5.1
+spring-boot : 2.5.4
+chaos-monkey-spring-boot : 2.5.3
 ```
 
